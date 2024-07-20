@@ -70,6 +70,10 @@ session_start();
                                                        <?php if (isset($_POST['txtemail'])) echo 'value="' . htmlspecialchars($_POST['txtemail']) . '"'; ?>>
                                             </div>
                                         </div>
+                                        
+                                        
+                                        
+                                        
                                         <div class="col-12">
                                             <div class="mb-2">
                                                 <div class="form-label">
