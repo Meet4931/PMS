@@ -59,7 +59,7 @@ session_start();
                                         <div class="col-12">
                                             <div class="mb-2">
                                                 <label class="form-label">Enrollment No</label>
-                                                <input type="text" name="txten" class="form-control form-control-lg" placeholder="Enrollment No" required=""
+                                                <input type="tel" name="txten" maxlength="15" pattern="[0-9]{15}" class="form-control form-control-lg" pattern="[0-9]{10}" placeholder="Enrollment No" required=""
                                                        <?php if (isset($_POST['txten'])) echo 'value="' . htmlspecialchars($_POST['txten']) . '"'; ?> required>
                                             </div>
                                         </div>
@@ -81,7 +81,7 @@ session_start();
                                         <div class="col-8">
                                             <div class="mb-2">
                                                 <label class="form-label">Contact Number</label>
-                                                <input type="tel" pattern="\d{10}" name="txtMobileNo"  class="form-control form-control-lg" maxlength="10" placeholder="xxxxx xxxxx" required=""
+                                                <input type="tel" pattern="\d{10}" pattern="[0-9]{10}" name="txtMobileNo"  class="form-control form-control-lg" maxlength="10" placeholder="xxxxx xxxxx" required=""
                                                        <?php if (isset($_POST['txtMobileNo'])) echo 'value="' . htmlspecialchars($_POST['txtMobileNo']) . '"'; ?> required>
                                             </div>
                                         </div>
@@ -89,12 +89,6 @@ session_start();
                                         <div class="col-4">
                                             <div class="mb-2">
                                                 <label class="form-label">Semester</label>
-<!--                                                <select class="form-control form-control-lg"  required="">
-                                                    <option name="sem[]"></option>
-                                                    <option value="5" name="sem1" <?php if (isset($_POST['sem1'])) echo 'value="' . htmlspecialchars($_POST['sem1']) . '"'; ?>>5</option>
-                                                    <option value="7" name="sem2" <?php if (isset($_POST['sem2'])) echo 'value="' . htmlspecialchars($_POST['sem2']) . '"'; ?>>7</option>
-
-                                                </select>-->
                                                 <input type="tel" pattern="\d{1}" maxlength="1" name="txtsem" placeholder="5 or 7" class="form-control form-control-lg" 
                                                        <?php if (isset($_POST['txtsem'])) echo 'value="' . htmlspecialchars($_POST['txtsem']) . '"'; ?> required>
                                             </div>
@@ -183,6 +177,10 @@ session_start();
             signup();
         }
 
+        if (isset($_POST['varbtn'])) {
+            $_SESSION['vstatus'] = 1;
+        }
+        
         function sendotp() {
             if (isset($_POST['txtemail'])) {
                 sendEmail($_POST['txtemail']);
@@ -208,7 +206,7 @@ session_start();
                 $mail->Port = 587;
 
                 // Sender and recipient
-                $mail->setFrom('22bmiit055@gmail.com', 'Meet');
+                $mail->setFrom('22bmiit055@gmail.com', 'Milestone Master');
                 $mail->addAddress($recipient_email);
 
                 $mail->isHTML(true);
