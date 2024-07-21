@@ -54,7 +54,7 @@ session_start();
                                             <h1>Sign in</h1>
                                             <span>Free access to our dashboard.</span>
                                         </div>
-                                        <div class="col-12 text-center mb-4">
+<!--                                        <div class="col-12 text-center mb-4">
                                             <a class="btn btn-lg btn-outline-secondary btn-block" href="#">
                                                 <span class="d-flex justify-content-center align-items-center">
                                                     <img class="avatar xs me-2" src="../assets/images/google.svg" alt="Image Description">
@@ -62,7 +62,7 @@ session_start();
                                                 </span>
                                             </a>
                                             <span class="dividers text-muted mt-4">OR</span>
-                                        </div>
+                                        </div>-->
                                         <div class="col-12">
                                             <div class="mb-2">
                                                 <label class="form-label">Email address</label>
@@ -121,9 +121,7 @@ session_start();
                 if ($num_rows == 1) {
                     while ($r = mysqli_fetch_assoc($qu)) {
                         $dbpass = $r['password'];
-                        echo "<script>alert('Stored Password Hash: $dbpass');</script>";
-                        echo "<script>alert('Entered Password: $pass');</script>";
-                        echo "<script>alert('password_verify($pass,$dbpass)');</script>";
+                        
                         if (password_verify($pass,$dbpass)) {
                             echo '<script>alert("Login Successfully");</script>';
                             echo '<script>location.replace("C:/xampp/htdocs/Class/html/index.php")</script>';
