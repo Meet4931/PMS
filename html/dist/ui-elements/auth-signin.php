@@ -123,7 +123,7 @@ session_start();
                         $dbpass = $r['password'];
                         echo "<script>alert('Stored Password Hash: $dbpass');</script>";
                         echo "<script>alert('Entered Password: $pass');</script>";
-
+                        echo "<script>alert('password_verify($pass,$dbpass)');</script>";
                         if (password_verify($pass,$dbpass)) {
                             echo '<script>alert("Login Successfully");</script>';
                             echo '<script>location.replace("C:/xampp/htdocs/Class/html/index.php")</script>';
